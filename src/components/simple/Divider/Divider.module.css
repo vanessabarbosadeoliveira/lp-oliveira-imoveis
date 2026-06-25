@@ -1,0 +1,4 @@
+.divider {
+  border: none;
+  border-top: 1px solid rgba(var(--gold-rgb), 0.18);
+}

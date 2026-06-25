@@ -1,0 +1,78 @@
+.shell {
+  min-height: 100vh;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: 60px;
+  background: var(--bg-dark-alt);
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.12);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  gap: 2rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-right: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.navLink {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  color: var(--text-body);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.navLink:hover {
+  background: rgba(var(--gold-rgb), 0.08);
+  color: var(--cream);
+}
+
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userName {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.signOut {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.signOut:hover {
+  color: var(--cream);
+}
+
+.main {
+  flex: 1;
+  padding: 2.5rem 2rem;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  color: var(--text-body);
+}

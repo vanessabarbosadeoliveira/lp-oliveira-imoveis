@@ -1,0 +1,81 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-dark: #131309;
+  --bg-dark-rgb: 19, 19, 9;
+  --bg-dark-alt: #1c1c10;
+  --gold: #c9a84c;
+  --gold-rgb: 201, 168, 76;
+  --gold-hover: #b8963d;
+  --cream: #f0ebe0;
+  --cream-dark: #e6dfd0;
+  --text-light: #ffffff;
+  --text-muted: #b0b08a;
+  --text-dark: #131309;
+  --text-secondary: #c0c09a;
+  --text-body: #ccc9b4;
+  --text-subtle: #5a5a40;
+  --text-label: #4a4a30;
+  --text-hint: #8a8a60;
+  --text-placeholder: #b0a890;
+  --border: #ddd5c0;
+  --input-bg: #ffffff;
+  --header-height: 72px;
+  --font-body: var(--font-inter);
+  --font-display: var(--font-playfair), 'Playfair Display', Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body), 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+/* ── Form base classes ─────────────────────────────────────────── */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.input-base {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid var(--border);
+  border-radius: 3px;
+  background: var(--input-bg);
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  transition: border-color 0.15s;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input-base:focus {
+  border-color: var(--gold);
+}
+
+.input-base::placeholder {
+  color: var(--text-placeholder);
+}
+
+.input-error {
+  border-color: #c0392b;
+}

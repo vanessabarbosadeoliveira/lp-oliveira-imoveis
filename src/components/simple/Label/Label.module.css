@@ -1,0 +1,12 @@
+.label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-label);
+}
+
+.required {
+  color: var(--gold);
+  margin-left: 2px;
+}

@@ -1,0 +1,19 @@
+.text {
+  line-height: 1.75;
+}
+
+.body {
+  font-size: 0.92rem;
+  color: var(--text-body);
+}
+
+.muted {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}

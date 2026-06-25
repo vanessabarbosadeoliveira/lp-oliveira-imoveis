@@ -1,0 +1,47 @@
+.wrapper {
+  min-height: 100vh;
+  padding-top: var(--header-height);
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.back:hover {
+  opacity: 1;
+}
+
+.tagSpacing {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.titleSpacing {
+  margin-bottom: 0.5rem;
+}
+
+.metaSpacing {
+  margin-bottom: 3rem;
+  display: block;
+}
+
+.dividerSpacing {
+  margin-bottom: 3rem;
+}

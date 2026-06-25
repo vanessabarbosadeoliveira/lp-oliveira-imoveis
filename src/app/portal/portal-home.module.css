@@ -1,0 +1,27 @@
+.sub {
+  margin: 0.25rem 0 2rem;
+}
+
+.cards {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: var(--bg-dark-alt);
+  border: 1px solid rgba(var(--gold-rgb), 0.14);
+  border-radius: 10px;
+  padding: 1.5rem;
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  color: var(--cream);
+  font-size: 1rem;
+}

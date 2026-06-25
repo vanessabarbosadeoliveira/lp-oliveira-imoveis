@@ -1,0 +1,6 @@
+.textarea {
+  composes: input-base from global;
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
