@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import LoginForm from '@/components/auth/LoginForm/LoginForm'
 import { Title, Text } from '@/components/simple'
 import styles from './login.module.css'
@@ -15,6 +16,10 @@ export default function LoginPage() {
         <Title as="h1" variant="section" className={styles.heading}>Acesse sua conta</Title>
         <Text variant="muted" className={styles.sub}>Painel administrativo e portal do cliente</Text>
         <LoginForm />
+        <p className={styles.footer}>
+          Não tem uma conta?{' '}
+          <Link href="/cadastro" className={styles.link}>Criar conta</Link>
+        </p>
       </div>
     </div>
   )

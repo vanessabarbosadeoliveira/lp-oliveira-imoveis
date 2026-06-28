@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Button, TextField, Dropdown, Checkbox } from '../simple'
 import { Popup, Termos, Privacidade } from '../popup'
+import { saveLeadAction } from './actions'
 import styles from './ContactForm.module.css'
 
 const EXPANSION_OPTIONS = [
@@ -61,10 +62,18 @@ export default function ContactForm() {
     return Object.keys(next).length === 0
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!validate()) return
     setLoading(true)
+
+    saveLeadAction({
+      nome: fields.nome,
+      email: fields.email,
+      whatsapp: fields.whatsapp,
+      negocio: fields.negocio,
+      expansao: fields.expansao,
+    }).catch(() => {})
 
     const phone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5562981835901'
     const text = encodeURIComponent(

@@ -1,0 +1,149 @@
+.container {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Timeline ───────────────────────────────────────────────── */
+
+.timelineWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 20px;
+  padding: 0 4px;
+}
+
+.track {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  right: 4px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-50%);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--gold);
+  transition: width 0.3s ease;
+  border-radius: 1px;
+}
+
+.dot {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.dotDone {
+  background: rgba(var(--gold-rgb));
+  border-color: rgba(var(--gold-rgb));
+}
+
+.dotActive {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.5);
+  box-shadow: 0 0 7px rgba(var(--gold-rgb), 0.55);
+}
+
+.stepCount {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin: 0;
+  text-align: right;
+  letter-spacing: 0.02em;
+}
+
+.stepCount span {
+  opacity: 0.6;
+}
+
+/* ── Form ───────────────────────────────────────────────────── */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.question {
+  min-height: 5.5rem;
+}
+
+.hint {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+/* ── Navigation ─────────────────────────────────────────────── */
+
+.nav {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.navGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.submitNote {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin: 0;
+}
+
+.submitError {
+  font-size: 0.78rem;
+  color: #f87171;
+  text-align: right;
+  margin: 0;
+}
+
+/* ── Spinner ────────────────────────────────────────────────── */
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  border: 2px solid rgba(var(--gold-rgb), 0.35);
+  border-top-color: var(--text-dark);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}

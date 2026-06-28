@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest) {
   // Skip middleware if Supabase is not configured (e.g. during local dev without .env.local)
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) {
     return NextResponse.next({ request })
   }
 
@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
     {
       cookies: {
         getAll() {
@@ -36,8 +36,8 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
 
-  // Redirect logged-in users away from login page
-  if (user && pathname === '/login') {
+  // Redirect logged-in users away from auth pages
+  if (user && (pathname === '/login' || pathname === '/cadastro')) {
     const { data: profile } = await supabase
       .from('profiles')
       .select('role')
@@ -65,5 +65,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/login', '/admin/:path*', '/portal/:path*'],
+  matcher: ['/login', '/cadastro', '/admin/:path*', '/portal/:path*'],
 }

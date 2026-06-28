@@ -1,27 +1,119 @@
+.greeting {
+  margin-bottom: 2.5rem;
+}
+
 .sub {
-  margin: 0.25rem 0 2rem;
+  margin-top: 0.25rem;
 }
 
-.cards {
-  display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.card {
-  background: var(--bg-dark-alt);
-  border: 1px solid rgba(var(--gold-rgb), 0.14);
-  border-radius: 10px;
-  padding: 1.5rem;
-  flex: 1;
-  min-width: 240px;
+.helpCard {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--bg-dark-alt);
+  border: 1px solid rgba(var(--gold-rgb), 0.2);
+  border-radius: 12px;
 }
 
-.cardTitle {
-  font-family: var(--font-display);
-  color: var(--cream);
-  font-size: 1rem;
+.helpText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.helpTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.helpDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 520px;
+}
+
+/* ── Section labels ─────────────────────────────────────────────── */
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.18);
+}
+
+/* ── Ferramentas grid ───────────────────────────────────────────── */
+
+.toolGrid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.toolCard {
+  background: var(--bg-dark-alt);
+  border: 1px solid rgba(var(--gold-rgb), 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  flex: 1;
+  min-width: 260px;
+  max-width: 400px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.toolMotivation {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.toolDescription {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+.toolAction {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toolUsage {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  align-self: flex-end;
+}
+
+/* ── History section wrapper ────────────────────────────────────── */
+
+.historySection {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }

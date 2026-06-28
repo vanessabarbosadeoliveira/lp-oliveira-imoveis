@@ -1,0 +1,61 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.back:hover {
+  color: var(--gold);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.75rem;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Result card ─────────────────────────────────────────────────── */
+
+.resultCard {
+  background: var(--bg-dark-alt);
+  border: 1px solid rgba(var(--gold-rgb), 0.18);
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+
+.result {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin: 0;
+}
+
+/* ── Empty / pending state ───────────────────────────────────────── */
+
+.pending {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 2rem 0;
+}

@@ -5,24 +5,24 @@
 }
 
 :root {
-  --bg-dark: #131309;
-  --bg-dark-rgb: 19, 19, 9;
-  --bg-dark-alt: #1c1c10;
+  --bg-dark: #ffffff;
+  --bg-dark-rgb: 255, 255, 255;
+  --bg-dark-alt: #f7f4eb;
   --gold: #c9a84c;
   --gold-rgb: 201, 168, 76;
   --gold-hover: #b8963d;
   --cream: #f0ebe0;
   --cream-dark: #e6dfd0;
-  --text-light: #ffffff;
-  --text-muted: #b0b08a;
+  --text-light: #131309;
+  --text-muted: #6a6848;
   --text-dark: #131309;
-  --text-secondary: #c0c09a;
-  --text-body: #ccc9b4;
-  --text-subtle: #5a5a40;
-  --text-label: #4a4a30;
-  --text-hint: #8a8a60;
-  --text-placeholder: #b0a890;
-  --border: #ddd5c0;
+  --text-secondary: #5a5840;
+  --text-body: #3a3828;
+  --text-subtle: #8a8868;
+  --text-label: #5a5838;
+  --text-hint: #9a9870;
+  --text-placeholder: #a09878;
+  --border: #e0d8c4;
   --input-bg: #ffffff;
   --header-height: 72px;
   --font-body: var(--font-inter);
@@ -36,7 +36,7 @@ html {
 body {
   font-family: var(--font-body), 'Inter', system-ui, sans-serif;
   background-color: var(--bg-dark);
-  color: var(--text-light);
+  color: var(--text-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
@@ -44,6 +44,49 @@ body {
 
 input, select, textarea, button {
   font-family: inherit;
+}
+
+/* ── Main content area ─────────────────────────────────────────── */
+
+main {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2.5rem 3rem;
+  color: var(--text-body);
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0 1.25rem 2rem;
+  }
+}
+
+/* ── Headings ──────────────────────────────────────────────────── */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+h4 {
+  font-size: 0.875rem;
 }
 
 /* ── Form base classes ─────────────────────────────────────────── */

@@ -1,0 +1,65 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 1.25rem 0.75rem 0;
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.18);
+}
+
+.table th:last-child {
+  padding-right: 0;
+}
+
+.table td {
+  padding: 0.9rem 1.25rem 0.9rem 0;
+  font-size: 0.875rem;
+  color: var(--text-body);
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.08);
+  vertical-align: middle;
+}
+
+.table td:last-child {
+  padding-right: 0;
+  text-align: right;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.toolName {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.statusBadge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  background: rgba(var(--gold-rgb), 0.12);
+  color: var(--gold);
+}
+
+.statusBadge.processing {
+  background: rgba(180, 140, 50, 0.1);
+  color: var(--text-muted);
+}
+
+.empty {
+  padding: 2rem 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}

@@ -1,0 +1,165 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+  margin-bottom: 0.25rem;
+}
+
+.back:hover {
+  color: var(--gold);
+}
+
+.profileHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.profileAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(var(--gold-rgb), 0.1);
+  border: 1px solid rgba(var(--gold-rgb), 0.2);
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profileName {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.profileMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+}
+
+.profileMetaItem {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.profileMetaItem strong {
+  color: var(--text-body);
+  font-weight: 500;
+}
+
+/* ── Sections ───────────────────────────────────────────────────── */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectionLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Field responses table ──────────────────────────────────────── */
+
+.fieldTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  border: 1px solid rgba(var(--gold-rgb), 0.18);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-dark-alt);
+}
+
+.fieldTable thead {
+  background: rgba(var(--gold-rgb), 0.05);
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.15);
+}
+
+.fieldTable th {
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.75rem 1rem;
+  white-space: nowrap;
+}
+
+.fieldTable td {
+  padding: 0.85rem 1rem;
+  color: var(--text-body);
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.08);
+  vertical-align: top;
+}
+
+.fieldTable tr:last-child td {
+  border-bottom: none;
+}
+
+.fieldGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.fieldGroupTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.fieldGroupDate {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.fieldLabel {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.empty {
+  padding: 2rem 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}

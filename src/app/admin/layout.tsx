@@ -1,5 +1,8 @@
+import Image from 'next/image'
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import Button from '@/components/simple/Button/Button'
+import NavLink from '@/components/simple/NavLink/NavLink'
 import styles from './admin.module.css'
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -19,20 +22,49 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   return (
     <div className={styles.shell}>
       <aside className={styles.sidebar}>
-        <div className={styles.logo}>Oliveira Imóveis</div>
+        <a href="/admin" className={styles.brand} aria-label="Oliveira Imóveis — admin">
+          <Image
+            src="/assets/logo/logo.png"
+            alt="Logotipo Oliveira Imóveis"
+            width={36}
+            height={36}
+            className={styles.logo}
+            priority
+          />
+          <div className={styles.brandName}>
+            OLIVEIRA IMÓVEIS
+            <span>Consultoria Imobiliária</span>
+          </div>
+        </a>
         <nav className={styles.nav}>
-          <a href="/admin" className={styles.navLink}>Dashboard</a>
-          <a href="/admin/leads" className={styles.navLink}>Leads</a>
-          <a href="/admin/clientes" className={styles.navLink}>Clientes</a>
+          <NavLink href="/admin" exact>Dashboard</NavLink>
+          <NavLink href="/admin/clientes">Clientes</NavLink>
         </nav>
         <div className={styles.sidebarFooter}>
-          <span className={styles.userName}>{profile?.full_name ?? user.email}</span>
+          <Button href="/admin/perfil" variant="outline" size="sm" className={styles.profileBtn}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            Meu perfil
+          </Button>
           <form action="/auth/signout" method="POST">
             <button type="submit" className={styles.signOut}>Sair</button>
           </form>
         </div>
       </aside>
-      <main className={styles.main}>{children}</main>
+      <main>{children}</main>
     </div>
   )
 }

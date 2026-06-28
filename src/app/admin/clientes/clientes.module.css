@@ -1,0 +1,73 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.search {
+  flex: 0 1 350px;
+  min-width: 180px;
+  background: var(--bg-dark-alt);
+  border: 1px solid rgba(var(--gold-rgb), 0.2);
+  border-radius: 6px;
+  color: var(--text-dark);
+  caret-color: #000000;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.875rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search::placeholder {
+  color: var(--text-muted);
+}
+
+.search:focus {
+  border-color: rgba(var(--gold-rgb), 0.5);
+}
+
+.search::-webkit-search-cancel-button {
+  filter: invert(0.6);
+  cursor: pointer;
+}
+
+.profileCell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.profileCell:hover {
+  color: var(--gold);
+}
+
+.profileCellIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(var(--gold-rgb), 0.1);
+  border: 1px solid rgba(var(--gold-rgb), 0.18);
+  color: var(--gold);
+  flex-shrink: 0;
+}

@@ -1,4 +1,4 @@
-import ContactForm from '../ContactForm/ContactForm'
+import RegisterForm from '../auth/RegisterForm/RegisterForm'
 import Button from '../simple/Button/Button'
 import styles from './HeroSection.module.css'
 
@@ -84,7 +84,11 @@ export default function HeroSection() {
         </div>
 
         <div className={styles.right}>
-          <ContactForm />
+          <div className={styles.registerCard}>
+            <h2 className={styles.registerCardTitle}>Crie sua conta</h2>
+            <p className={styles.registerCardSub}>Acesse análises e acompanhe seu processo.</p>
+            <RegisterForm />
+          </div>
         </div>
       </div>
     </section>

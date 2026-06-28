@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
-
+import PixelCapture from '@/components/PixelCapture/PixelCapture'
 
 // @ts-ignore: global stylesheet import is handled by Next.js (don't remove this comment)
 import '../css/globals.css'
@@ -30,7 +30,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
-      <body>{children}</body>
+      <body>
+        <PixelCapture />
+        {children}
+      </body>
     </html>
   )
 }
