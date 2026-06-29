@@ -63,7 +63,7 @@ export default function LoginForm() {
     setLoading(false)
 
     if (resetError) {
-      setError('Não foi possível enviar o e-mail de redefinição. Tente novamente mais tarde ou entre em contato com o suporte.')
+      setError(`Erro: ${resetError.message} (${resetError.status ?? resetError.code ?? 'sem código'})`)
       return
     }
 
