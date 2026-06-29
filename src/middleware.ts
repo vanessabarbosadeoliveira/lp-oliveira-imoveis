@@ -31,9 +31,18 @@ export async function middleware(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser()
   const { pathname } = request.nextUrl
 
+  // Helper: copy refreshed session cookies onto any redirect response
+  function redirectWithSession(url: URL) {
+    const res = NextResponse.redirect(url)
+    supabaseResponse.cookies.getAll().forEach(({ name, value }) => {
+      res.cookies.set(name, value)
+    })
+    return res
+  }
+
   // Redirect unauthenticated users away from protected routes
   if (!user && (pathname.startsWith('/admin') || pathname.startsWith('/portal'))) {
-    return NextResponse.redirect(new URL('/login', request.url))
+    return redirectWithSession(new URL('/login', request.url))
   }
 
   // Redirect logged-in users away from auth pages
@@ -45,7 +54,7 @@ export async function middleware(request: NextRequest) {
       .single()
 
     const destination = profile?.role === 'admin' ? '/admin' : '/portal'
-    return NextResponse.redirect(new URL(destination, request.url))
+    return redirectWithSession(new URL(destination, request.url))
   }
 
   // Guard /admin routes: must be admin role
@@ -57,7 +66,7 @@ export async function middleware(request: NextRequest) {
       .single()
 
     if (profile?.role !== 'admin') {
-      return NextResponse.redirect(new URL('/portal', request.url))
+      return redirectWithSession(new URL('/portal', request.url))
     }
   }
 

@@ -74,7 +74,11 @@ export default function RegisterForm() {
     })
 
     if (error) {
-      setServerError(error.message)
+      setServerError(
+        error.message && error.message !== '{}'
+          ? error.message
+          : 'Ocorreu um erro inesperado. Tente novamente mais tarde.'
+      )
       setLoading(false)
       return
     }
@@ -124,6 +128,7 @@ export default function RegisterForm() {
           autoComplete="new-password"
           error={errors.password as string | undefined}
           hint="Mínimo 8 caracteres, com maiúscula, minúscula e número."
+          showToggle
         />
         <TextField
           label="Confirmar senha"
@@ -133,6 +138,7 @@ export default function RegisterForm() {
           required
           autoComplete="new-password"
           error={errors.confirmPassword as string | undefined}
+          showToggle
         />
 
         <Checkbox

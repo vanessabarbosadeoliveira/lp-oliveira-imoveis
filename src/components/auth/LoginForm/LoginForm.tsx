@@ -63,7 +63,7 @@ export default function LoginForm() {
     setLoading(false)
 
     if (resetError) {
-      setError(`Erro: ${resetError.message} (${resetError.status ?? resetError.code ?? 'sem código'})`)
+      setError('Não foi possível enviar o e-mail de redefinição. Tente novamente mais tarde ou entre em contato com o suporte.')
       return
     }
 
@@ -122,6 +122,7 @@ export default function LoginForm() {
           type="password"
           required
           autoComplete="current-password"
+          showToggle
         />
         <button type="button" className={styles.textBtn} onClick={() => { setMode('forgot'); setError(null) }}>
           Esqueci minha senha

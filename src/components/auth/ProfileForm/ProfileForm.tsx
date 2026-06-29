@@ -218,6 +218,7 @@ export default function ProfileForm({
             autoComplete="new-password"
             error={pwErrors.newPassword}
             hint="Mínimo 8 caracteres, com maiúscula, minúscula e número."
+            showToggle
           />
           <TextField
             label="Confirmar nova senha"
@@ -227,6 +228,7 @@ export default function ProfileForm({
             required
             autoComplete="new-password"
             error={pwErrors.confirmPassword}
+            showToggle
           />
           {pwStatus && (
             <p className={pwIsError ? styles.error : styles.success}>

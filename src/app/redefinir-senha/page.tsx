@@ -62,6 +62,7 @@ export default function RedefinirSenhaPage() {
             autoComplete="new-password"
             error={errors.password}
             hint="Mínimo 8 caracteres, com maiúscula, minúscula e número."
+            showToggle
           />
           <TextField
             label="Confirmar senha"
@@ -71,6 +72,7 @@ export default function RedefinirSenhaPage() {
             required
             autoComplete="new-password"
             error={errors.confirm}
+            showToggle
           />
           {status && <p className={formStyles.error}>{status}</p>}
           <Button type="submit" size="lg" className={formStyles.submit} disabled={loading}>
