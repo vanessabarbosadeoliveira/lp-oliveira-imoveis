@@ -46,8 +46,6 @@ export default function HeroSection() {
     <section className={styles.section} aria-labelledby="hero-heading">
       <div className={styles.inner}>
         <div className={styles.left}>
-          <p className={styles.eyebrow}>Expansão Comercial · Análise Gratuita</p>
-
           <h1 id="hero-heading" className={styles.heading}>
             Quer crescer sua<br />
             loja no <em>ponto certo?</em>
@@ -57,21 +55,6 @@ export default function HeroSection() {
             Receba gratuitamente uma análise do ponto, do entorno e do potencial
             comercial antes de expandir.
           </p>
-
-          <Button
-            href={`https://wa.me/${WHATSAPP_PHONE}?text=${WHATSAPP_TEXT}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            size="lg"
-            className={styles.ctaBtn}
-            aria-label="Receber pesquisa gratuita pelo WhatsApp"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polyline points="5 12 12 5 19 12" />
-              <line x1="12" y1="5" x2="12" y2="19" />
-            </svg>
-            Receber pesquisa gratuita
-          </Button>
 
           <ul className={styles.badges} role="list">
             {BADGES.map(b => (
@@ -85,8 +68,8 @@ export default function HeroSection() {
 
         <div className={styles.right}>
           <div className={styles.registerCard}>
-            <h2 className={styles.registerCardTitle}>Crie sua conta</h2>
-            <p className={styles.registerCardSub}>Acesse análises e acompanhe seu processo.</p>
+            <h2 className={styles.registerCardTitle}>Comece sua Análise Gratuita</h2>
+            <p className={styles.registerCardSub}>Fale com um especialista ou faça uma pesquisa de mercado agora pela nossa plataforma.</p>
             <RegisterForm />
           </div>
         </div>

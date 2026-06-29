@@ -9,11 +9,9 @@ const FERRAMENTAS = [
   {
     slug: 'pesquisa-mercado',
     title: 'Pesquisa de Mercado',
-    motivation: 'Tome decisões informadas de compra e venda com base em dados reais do mercado imobiliário.',
+    motivation: 'Não arrisque seu investimento. Faça sua pesquisa de mercado agora.',
     description:
-      'Preencha um formulário com as características do imóvel e da região de interesse. ' +
-      'Nossa inteligência artificial gera um relatório detalhado com análise de preços, ' +
-      'perfil da área e tendências do mercado local.',
+      'Com o apoio da IA e das perguntas certas, a gente coloca os dados na mesa para você decidir com segurança. Preencha o formulário.',
     href: '/portal/ferramentas/pesquisa-mercado',
   },
 ] as const
@@ -71,11 +69,8 @@ export default async function PortalHome() {
         <Text variant="muted" className={styles.sub}>Bem-vindo ao seu portal Oliveira Imóveis.</Text>
         <div className={styles.helpCard}>
           <div className={styles.helpText}>
-            <p className={styles.helpTitle}>Encontre o ponto ideal para o seu negócio</p>
-            <p className={styles.helpDesc}>
-              Nossa equipe pode te ajudar gratuitamente a encontrar e avaliar o melhor ponto comercial
-              para a sua expansão — com dados reais de mercado, perfil da região e análise da concorrência.
-            </p>
+            <h3>Encontre o ponto ideal para o seu negócio</h3>
+            <p className={styles.helpDesc}>Nossa equipe pode te ajudar gratuitamente a encontrar e avaliar o melhor ponto comercial — com dados reais de mercado, perfil da região e análise da concorrência.</p>
           </div>
           <Button href={WHATSAPP_HREF} variant="solid" size="md">
             Falar com especialista
@@ -85,7 +80,7 @@ export default async function PortalHome() {
 
       {/* ── Ferramentas ─────────────────────────────────────────── */}
       <section className={styles.section}>
-        <h2 className={styles.sectionLabel}>Ferramentas disponíveis</h2>
+        <h2 className={styles.sectionLabel}>Ferramentas</h2>
         <div className={styles.toolGrid}>
           {FERRAMENTAS.map(tool => {
             const uses = usageBySlug[tool.slug] ?? 0
