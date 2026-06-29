@@ -39,8 +39,13 @@ yarn-error.log*
 *.mp4
 *.MP4
 
-# vercel
+# vercel / cloudflare build outputs
 .vercel
+.open-next
+.wrangler
+
+# cloudflare dev env vars (treat like .env.local)
+.dev.vars
 
 # typescript
 *.tsbuildinfo
