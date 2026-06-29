@@ -16,6 +16,7 @@ export type ContentBlock = TextBlock | ListBlock
 
 export type Section = {
   heading?: string
+  lead?: TextBlock | null
   blocks: ContentBlock[]
 }
 
@@ -41,6 +42,7 @@ export default function StructuredText({ sections, className }: StructuredTextPr
           {section.heading && (
             <Title as="h2" variant="section">{section.heading}</Title>
           )}
+          {section.lead && <Text variant="body">{section.lead.content}</Text>}
           {section.blocks.map((block, j) => {
             if (block.type === 'paragraph') {
               return <Text key={j} variant="body">{block.content}</Text>

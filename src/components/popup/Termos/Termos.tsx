@@ -51,7 +51,26 @@ const data: LegalPageData = {
         {
           type: 'paragraph',
           content:
-            'A Oliveira Imóveis busca manter suas páginas disponíveis e atualizadas, mas não garante funcionamento ininterrupto, ausência de erros técnicos ou disponibilidade permanente de links externos.',
+            'A Oliveira Imóveis busca manter suas páginas disponíveis e atualizadas, mas não garante funcionamento ininterrupto, ausência de erros técnicos ou disponibilidade permanente de links externos, como WhatsApp, plataformas de anúncios e ferramentas de análise.',
+        },
+      ],
+    },
+    {
+      heading: '4.1. Isenção de responsabilidade sobre a pesquisa de mercado',
+      lead: {
+        type: 'paragraph',
+        content:
+          'A pesquisa de mercado fornecida pela Oliveira Imóveis é elaborada com base nas informações disponíveis no momento da solicitação, com caráter exclusivamente informativo e orientativo. O usuário declara que a solicita por livre e espontânea vontade, ciente de que:',
+      },
+      blocks: [
+        {
+          type: 'list',
+          items: [
+            'A pesquisa não constitui consultoria financeira, imobiliária ou jurídica.',
+            'Os resultados, projeções e análises apresentados são estimativas, sujeitos a variações de mercado e circunstâncias externas não controláveis pela Oliveira Imóveis.',
+            'A decisão de abrir, expandir ou manter um negócio é de responsabilidade exclusiva do usuário.',
+            'A Oliveira Imóveis não se responsabiliza por perdas, prejuízos ou frustrações decorrentes do uso ou interpretação das informações contidas na pesquisa.',
+          ],
         },
       ],
     },

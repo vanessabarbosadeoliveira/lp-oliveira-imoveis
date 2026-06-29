@@ -16,8 +16,8 @@ const FERRAMENTAS = [
   },
 ] as const
 
-const WHATSAPP_PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5562981835901'
-const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent('Olá! Vim pelo site da Oliveira Imóveis e quero receber a pesquisa gratuita.')}`
+const WHATSAPP_PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5531999558360'
+const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent('Olá! Vim pelo site da Oliveira Imóveis e gostaria de ajuda para encontrar uma loja no ponto certo para o meu negócio.')}`
 
 export default async function PortalHome() {
   const supabase = await createClient()
