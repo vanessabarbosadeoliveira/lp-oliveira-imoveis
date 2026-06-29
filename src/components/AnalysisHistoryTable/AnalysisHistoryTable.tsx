@@ -39,39 +39,41 @@ export default function AnalysisHistoryTable({ rows, getAnalysisHref }: Analysis
   )
 
   return (
-    <table className={styles.table}>
-      <thead>
-        <tr>
-          <th>Ferramenta</th>
-          <th>Data e hora</th>
-          <th>Status</th>
-          <th>Análise</th>
-        </tr>
-      </thead>
-      <tbody>
-        {sorted.map(row => (
-          <tr key={row.id}>
-            <td className={styles.toolName}>{row.form_templates?.title ?? '—'}</td>
-            <td>{formatDate(row.updated_at)}</td>
-            <td>
-              <span className={`${styles.statusBadge}${row.status === 'processing' ? ` ${styles.processing}` : ''}`}>
-                {STATUS_LABEL[row.status] ?? row.status}
-              </span>
-            </td>
-            <td>
-              {row.status === 'complete' && (
-                <Button
-                  href={analysisHref(row.id)}
-                  variant="outline"
-                  size="sm"
-                >
-                  Ver análise
-                </Button>
-              )}
-            </td>
+    <div className={styles.tableWrapper}>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>Ferramenta</th>
+            <th>Data e hora</th>
+            <th className={styles.statusCol}>Status</th>
+            <th>Análise</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {sorted.map(row => (
+            <tr key={row.id}>
+              <td className={styles.toolName}>{row.form_templates?.title ?? '—'}</td>
+              <td>{formatDate(row.updated_at)}</td>
+              <td className={styles.statusCol}>
+                <span className={`${styles.statusBadge}${row.status === 'processing' ? ` ${styles.processing}` : ''}`}>
+                  {STATUS_LABEL[row.status] ?? row.status}
+                </span>
+              </td>
+              <td>
+                {row.status === 'complete' && (
+                  <Button
+                    href={analysisHref(row.id)}
+                    variant="outline"
+                    size="sm"
+                  >
+                    Ver análise
+                  </Button>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }

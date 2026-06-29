@@ -58,8 +58,19 @@
   color: var(--text-muted);
 }
 
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
 .empty {
   padding: 2rem 0;
   font-size: 0.875rem;
   color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .statusCol {
+    display: none;
+  }
 }

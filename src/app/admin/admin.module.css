@@ -4,6 +4,8 @@
   background: var(--bg-dark);
 }
 
+/* ── Desktop sidebar ───────────────────────────────────────────── */
+
 .sidebar {
   width: 260px;
   flex-shrink: 0;
@@ -59,7 +61,6 @@
   flex: 1;
 }
 
-
 .profileBtn {
   width: 100%;
   justify-content: flex-start;
@@ -83,7 +84,7 @@
 }
 
 .signOut:hover {
-  color: var(--cream);
+  color: var(--text-dark);
 }
 
 /* Sides/bottom come from global main; top padding added here */
@@ -91,4 +92,83 @@
   flex: 1;
   padding-top: 2.5rem;
   overflow-y: auto;
+}
+
+/* ── Mobile header (hidden on desktop) ─────────────────────────── */
+
+.mobileHeader {
+  display: none;
+}
+
+/* ── Mobile drawer items ───────────────────────────────────────── */
+
+.menuDivider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0.5rem 0;
+}
+
+.menuProfileBtn {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.menuSignOut {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.45rem 1.1rem;
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  border-radius: 3px;
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menuSignOut:hover {
+  background: var(--gold);
+  color: var(--text-dark);
+}
+
+/* ── Mobile breakpoint ─────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .shell {
+    flex-direction: column;
+  }
+
+  /* Sidebar collapses into the mobile header + drawer */
+  .sidebar {
+    display: none;
+  }
+
+  /* Fixed header replaces the sidebar on mobile */
+  .mobileHeader {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--header-height);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background: rgba(var(--bg-dark-rgb), 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(var(--gold-rgb), 0.15);
+  }
+
+  /* Push main content below the fixed mobile header */
+  .shell main {
+    padding-top: calc(var(--header-height) + 1.5rem);
+  }
 }

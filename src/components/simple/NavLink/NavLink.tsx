@@ -7,13 +7,16 @@ interface NavLinkProps {
   href: string
   children: React.ReactNode
   exact?: boolean
+  hideWhenActive?: boolean
 }
 
-export default function NavLink({ href, children, exact = false }: NavLinkProps) {
+export default function NavLink({ href, children, exact = false, hideWhenActive = false }: NavLinkProps) {
   const pathname = usePathname()
   const isActive = exact
     ? pathname === href
     : pathname === href || pathname.startsWith(href + '/')
+
+  if (hideWhenActive && isActive) return null
 
   return (
     <a
