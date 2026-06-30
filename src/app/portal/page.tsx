@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { Title, Text, Button } from '@/components/simple'
 import AnalysisHistoryTable, { type AnalysisHistoryRow } from '@/components/AnalysisHistoryTable/AnalysisHistoryTable'
+import WhatsAppButton from '@/components/WhatsAppButton/WhatsAppButton'
 import styles from './portal-home.module.css'
 
 const MAX_USES = 2
@@ -15,9 +16,6 @@ const FERRAMENTAS = [
     href: '/portal/ferramentas/pesquisa-mercado',
   },
 ] as const
-
-const WHATSAPP_PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5531999558360'
-const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent('Olá! Vim pelo site da Oliveira Imóveis e gostaria de ajuda para encontrar uma loja no ponto certo para o meu negócio.')}`
 
 export default async function PortalHome() {
   const supabase = await createClient()
@@ -72,9 +70,7 @@ export default async function PortalHome() {
             <h3>Encontre o ponto ideal para o seu negócio</h3>
             <p className={styles.helpDesc}>Nossa equipe pode te ajudar gratuitamente a encontrar e avaliar o melhor ponto comercial — com dados reais de mercado, perfil da região e análise da concorrência.</p>
           </div>
-          <Button href={WHATSAPP_HREF} variant="solid" size="md">
-            Falar com especialista
-          </Button>
+          <WhatsAppButton />
         </div>
       </div>
 

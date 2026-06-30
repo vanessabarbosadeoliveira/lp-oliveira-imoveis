@@ -1,5 +1,5 @@
 import RegisterForm from '../auth/RegisterForm/RegisterForm'
-import Button from '../simple/Button/Button'
+import WhatsAppButton from '@/components/WhatsAppButton/WhatsAppButton'
 import styles from './HeroSection.module.css'
 
 const BADGES = [
@@ -36,11 +36,6 @@ const BADGES = [
   },
 ]
 
-const WHATSAPP_PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5562981835901'
-const WHATSAPP_TEXT = encodeURIComponent(
-  'Olá! Vim pelo site da Oliveira Imóveis e quero receber a pesquisa gratuita.'
-)
-
 export default function HeroSection() {
   return (
     <section className={styles.section} aria-labelledby="hero-heading">
@@ -55,6 +50,10 @@ export default function HeroSection() {
             Receba gratuitamente uma análise do ponto, do entorno e do potencial
             comercial antes de expandir.
           </p>
+
+          <div className={styles.ctaBtn}>
+            <WhatsAppButton />
+          </div>
 
           <ul className={styles.badges} role="list">
             {BADGES.map(b => (
