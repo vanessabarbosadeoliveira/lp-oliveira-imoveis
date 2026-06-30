@@ -87,10 +87,11 @@
   color: var(--text-dark);
 }
 
-/* Sides/bottom come from global main; top padding added here */
 .shell main {
   flex: 1;
-  padding-top: 2.5rem;
+  max-width: none;
+  margin: 0;
+  padding: 2.5rem;
   overflow-y: auto;
 }
 

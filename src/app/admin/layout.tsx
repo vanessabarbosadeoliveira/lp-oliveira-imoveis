@@ -41,6 +41,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <nav className={styles.nav}>
           <NavLink href="/admin" exact>Dashboard</NavLink>
           <NavLink href="/admin/clientes">Clientes</NavLink>
+          <NavLink href="/admin/formularios" exact>Campos</NavLink>
+          <NavLink href="/admin/formularios/templates">Formulários</NavLink>
         </nav>
         <div className={styles.sidebarFooter}>
           <Button href="/admin/perfil" variant="outline" size="sm" className={styles.profileBtn}>
@@ -86,6 +88,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <MobileMenu>
           <NavLink href="/admin" exact>Dashboard</NavLink>
           <NavLink href="/admin/clientes">Clientes</NavLink>
+          <NavLink href="/admin/formularios" exact>Campos</NavLink>
+          <NavLink href="/admin/formularios/templates">Formulários</NavLink>
           <hr className={styles.menuDivider} />
           <Button href="/admin/perfil" variant="outline" size="sm" className={styles.menuProfileBtn}>
             <svg
