@@ -11,7 +11,7 @@ export default async function ClientesPage() {
 
   const { data: clientes } = await supabase
     .from('profiles')
-    .select('id, full_name, email, whatsapp, pixel_id, created_at')
+    .select('id, full_name, email, whatsapp, pixel_id, status, created_at')
     .eq('role', 'customer')
     .order('created_at', { ascending: false })
 

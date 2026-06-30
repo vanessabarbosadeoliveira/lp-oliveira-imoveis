@@ -4,7 +4,18 @@ import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { Title, Text, Table } from '@/components/simple'
 import type { Column } from '@/components/simple'
+import { updateClientStatus, type ClientStatus } from './actions'
 import styles from './clientes.module.css'
+
+const STATUS_LABELS: Record<ClientStatus, string> = {
+  contacted:     'Entrou em contato',
+  not_contacted: 'Não entrou em contato',
+}
+
+const STATUS_NEXT: Record<ClientStatus, ClientStatus> = {
+  contacted:     'not_contacted',
+  not_contacted: 'contacted',
+}
 
 function ProfileIcon() {
   return (
@@ -26,55 +37,87 @@ function ProfileIcon() {
   )
 }
 
-const COLUMNS: Column[] = [
-  {
-    key: 'full_name',
-    label: 'Perfil',
-    type: 'string',
-    sortable: true,
-    render: (row) => (
-      <Link href={`/admin/clientes/${row.id}`} className={styles.profileCell}>
-        <span className={styles.profileCellIcon}><ProfileIcon /></span>
-        <span>{String(row.full_name ?? '—')}</span>
-      </Link>
-    ),
-  },
-  { key: 'email',      label: 'E-mail',        type: 'email',  sortable: true  },
-  { key: 'whatsapp',   label: 'WhatsApp',      type: 'phone',  sortable: false },
-  { key: 'pixel_id',   label: 'Pixel ID',      type: 'string', sortable: false },
-  {
-    key: 'created_at',
-    label: 'Cadastrado em',
-    type: 'date',
-    sortable: true,
-    render: (row) =>
-      row.created_at
-        ? new Date(row.created_at as string).toLocaleString('pt-BR', {
-            day: '2-digit', month: '2-digit', year: 'numeric',
-            hour: '2-digit', minute: '2-digit',
-          })
-        : '—',
-  },
-]
-
 interface ClientesTableProps {
   rows: Record<string, unknown>[]
 }
 
 export default function ClientesTable({ rows }: ClientesTableProps) {
   const [query, setQuery] = useState('')
+  const [statusOverrides, setStatusOverrides] = useState<Record<string, ClientStatus>>({})
+
+  async function handleToggleStatus(id: string, current: ClientStatus) {
+    const next = STATUS_NEXT[current]
+    setStatusOverrides(prev => ({ ...prev, [id]: next }))
+    const err = await updateClientStatus(id, next)
+    if (err) setStatusOverrides(prev => ({ ...prev, [id]: current }))
+  }
+
+  const COLUMNS: Column[] = useMemo(() => [
+    {
+      key: 'full_name',
+      label: 'Perfil',
+      type: 'string',
+      sortable: true,
+      render: (row) => (
+        <Link href={`/admin/clientes/${row.id}`} className={styles.profileCell}>
+          <span className={styles.profileCellIcon}><ProfileIcon /></span>
+          <span>{String(row.full_name ?? '—')}</span>
+        </Link>
+      ),
+    },
+    { key: 'email',    label: 'E-mail',   type: 'email',  sortable: true  },
+    { key: 'whatsapp', label: 'WhatsApp', type: 'phone',  sortable: false },
+    { key: 'pixel_id', label: 'Pixel ID', type: 'string', sortable: false },
+    {
+      key: 'status',
+      label: 'Status',
+      type: 'string',
+      sortable: true,
+      render: (row) => {
+        const id = row.id as string
+        const status = (row.status ?? 'not_contacted') as ClientStatus
+        return (
+          <button
+            type="button"
+            className={`${styles.statusBadge} ${status === 'contacted' ? styles.statusContacted : styles.statusNotContacted}`}
+            onClick={() => handleToggleStatus(id, status)}
+            title="Clique para alternar o status"
+          >
+            {STATUS_LABELS[status]}
+          </button>
+        )
+      },
+    },
+    {
+      key: 'created_at',
+      label: 'Cadastrado em',
+      type: 'date',
+      sortable: true,
+      render: (row) =>
+        row.created_at
+          ? new Date(row.created_at as string).toLocaleString('pt-BR', {
+              day: '2-digit', month: '2-digit', year: 'numeric',
+              hour: '2-digit', minute: '2-digit',
+            })
+          : '—',
+    },
+  ], [statusOverrides])
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
-    if (!q) return rows
-    return rows.filter(row => {
+    const base = rows.map(row => {
+      const id = row.id as string
+      return statusOverrides[id] ? { ...row, status: statusOverrides[id] } : row
+    })
+    if (!q) return base
+    return base.filter(row => {
       const name  = String(row.full_name ?? '').toLowerCase()
       const phone = String(row.whatsapp  ?? '').toLowerCase()
       const email = String(row.email     ?? '').toLowerCase()
       const pixel = String(row.pixel_id  ?? '').toLowerCase()
       return name.includes(q) || phone.includes(q) || email.includes(q) || pixel.includes(q)
     })
-  }, [rows, query])
+  }, [rows, query, statusOverrides])
 
   return (
     <div className={styles.page}>

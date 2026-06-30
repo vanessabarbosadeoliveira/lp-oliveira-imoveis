@@ -59,6 +59,35 @@
   color: var(--gold);
 }
 
+.statusBadge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  transition: opacity 0.15s;
+}
+
+.statusBadge:hover {
+  opacity: 0.75;
+}
+
+.statusContacted {
+  background: #e6f4ec;
+  color: #1e6b3e;
+  border-color: #b2dfc3;
+}
+
+.statusNotContacted {
+  background: var(--bg-dark-alt);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
 .profileCellIcon {
   display: flex;
   align-items: center;
