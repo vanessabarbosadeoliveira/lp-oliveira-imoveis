@@ -1,5 +1,5 @@
-import RegisterForm from '../auth/RegisterForm/RegisterForm'
-import WhatsAppButton from '@/components/WhatsAppButton/WhatsAppButton'
+import LeadForm from '@/components/LeadForm'
+import Button from '@/components/simple/Button/Button'
 import styles from './HeroSection.module.css'
 
 const BADGES = [
@@ -47,12 +47,13 @@ export default function HeroSection() {
           </h1>
 
           <p className={styles.description}>
-            Receba gratuitamente uma análise do ponto, do entorno e do potencial
-            comercial antes de expandir.
+            Cadastre-se para receber gratuitamente uma análise do ponto ou falar com um especialista.
           </p>
 
           <div className={styles.ctaBtn}>
-            <WhatsAppButton />
+            <Button href="/cadastro" variant="outline" size="md">
+              Cadastre-se e solicitar análise gratuita
+            </Button>
           </div>
 
           <ul className={styles.badges} role="list">
@@ -67,9 +68,9 @@ export default function HeroSection() {
 
         <div className={styles.right}>
           <div className={styles.registerCard}>
-            <h2 className={styles.registerCardTitle}>Comece sua Análise Gratuita</h2>
-            <p className={styles.registerCardSub}>Fale com um especialista ou faça uma pesquisa de mercado agora pela nossa plataforma.</p>
-            <RegisterForm />
+            <h2 className={styles.registerCardTitle}>Fale com um especialista</h2>
+            <p className={styles.registerCardSub}>Preencha seus dados e entraremos em contato pelo WhatsApp.</p>
+            <LeadForm />
           </div>
         </div>
       </div>

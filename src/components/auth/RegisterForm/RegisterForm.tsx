@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Button, TextField, Checkbox } from '@/components/simple'
 import { Popup, Termos, Privacidade } from '@/components/popup'
+import { gtagEvent } from '@/lib/gtag'
 import styles from './RegisterForm.module.css'
 
 function formatPhone(value: string) {
@@ -83,6 +84,7 @@ export default function RegisterForm() {
       return
     }
 
+    gtagEvent('sign_up', { method: 'email' })
     router.push('/portal')
     router.refresh()
   }
