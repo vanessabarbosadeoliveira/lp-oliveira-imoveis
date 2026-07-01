@@ -1,77 +1,36 @@
-import LeadForm from '@/components/LeadForm'
+import { Tag, Title, Text } from '@/components/simple'
 import Button from '@/components/simple/Button/Button'
+import DualHeroCard from './DualHeroCard'
 import styles from './HeroSection.module.css'
 
-const BADGES = [
-  {
-    icon: (
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" />
-        <line x1="12" y1="8" x2="12" y2="12" />
-        <line x1="12" y1="16" x2="12.01" y2="16" />
-      </svg>
-    ),
-    label: 'R$0 para solicitar',
-  },
-  {
-    icon: (
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-        <circle cx="12" cy="10" r="3" />
-      </svg>
-    ),
-    label: 'BH e região',
-  },
-  {
-    icon: (
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
-        <polyline points="10 9 9 9 8 9" />
-      </svg>
-    ),
-    label: 'Dados antes do contrato',
-  },
-]
+function CheckIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M4.5 7l1.8 1.8L9.5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
 
 export default function HeroSection() {
   return (
-    <section className={styles.section} aria-labelledby="hero-heading">
+    <section className={styles.section} aria-labelledby="hero-heading" id="inicio">
       <div className={styles.inner}>
         <div className={styles.left}>
-          <h1 id="hero-heading" className={styles.heading}>
-            Quer crescer sua<br />
-            loja no <em>ponto certo?</em>
-          </h1>
+          <Tag as="div" className={styles.eyebrow}>Oliveira Imóveis · Comercial</Tag>
+          <Title as="h1" variant="hero" id="hero-heading" className={styles.heading}>
+            Seu próximo ponto<br />
+            precisa de <em>dados,</em><br />
+            não de sorte.
+          </Title>
 
-          <p className={styles.description}>
-            Cadastre-se para receber gratuitamente uma análise do ponto ou falar com um especialista.
-          </p>
-
-          <div className={styles.ctaBtn}>
-            <Button href="/cadastro" variant="outline" size="md">
-              Cadastre-se e solicitar análise gratuita
-            </Button>
-          </div>
-
-          <ul className={styles.badges} role="list">
-            {BADGES.map(b => (
-              <li key={b.label} className={styles.badge}>
-                {b.icon}
-                {b.label}
-              </li>
-            ))}
-          </ul>
+          <Text variant="lead" className={styles.description}>
+            Antes de assinar um contrato, saiba se o ponto tem <strong>fluxo de público</strong>, <strong>vocação comercial</strong> e <strong>vizinhos certos</strong> para o seu negócio crescer de verdade.
+          </Text>
         </div>
 
         <div className={styles.right}>
-          <div className={styles.registerCard}>
-            <h2 className={styles.registerCardTitle}>Fale com um especialista</h2>
-            <p className={styles.registerCardSub}>Preencha seus dados e entraremos em contato pelo WhatsApp.</p>
-            <LeadForm />
-          </div>
+          <DualHeroCard />
         </div>
       </div>
     </section>

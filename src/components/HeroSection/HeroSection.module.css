@@ -21,7 +21,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 0;
+  padding: 3rem 0;
 }
 
 .left {
@@ -75,6 +75,14 @@
 }
 
 .ctaBtn {
+  margin-bottom: 2.5rem;
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
   margin-bottom: 2.5rem;
 }
 

@@ -1,3 +1,7 @@
+export { default as Section } from './Section/Section'
+export type { SectionProps } from './Section/Section'
+export { default as Card } from './Card/Card'
+export type { CardProps } from './Card/Card'
 export { default as Button } from './Button/Button'
 export { default as NavLink } from './NavLink/NavLink'
 export type { ButtonProps, ButtonVariant, ButtonSize, ButtonColor } from './Button/Button'

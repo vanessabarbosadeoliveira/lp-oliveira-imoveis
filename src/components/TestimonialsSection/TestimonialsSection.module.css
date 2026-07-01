@@ -1,0 +1,68 @@
+.heading {
+  margin-top: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.quoteIcon {
+  color: rgba(var(--gold-rgb), 0.35);
+  display: flex;
+}
+
+.stars {
+  display: flex;
+  gap: 0.15rem;
+  color: var(--gold);
+}
+
+.text {
+  flex: 1;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.result {
+  border-left: 2px solid var(--gold);
+  padding-left: 0.6rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

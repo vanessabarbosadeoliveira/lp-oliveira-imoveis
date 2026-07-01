@@ -1,0 +1,34 @@
+.section {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 5rem 5%;
+}
+
+.compact {
+  padding: 3rem 5%;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.light {
+  background: var(--bg-dark);
+  --card-bg: var(--bg-dark-alt);
+}
+
+.alt {
+  background: var(--bg-dark-alt);
+  --card-bg: var(--bg-dark);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3.5rem 5%;
+  }
+
+  .compact {
+    padding: 2.5rem 5%;
+  }
+}

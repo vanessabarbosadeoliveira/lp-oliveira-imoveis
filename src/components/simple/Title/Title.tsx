@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import styles from './Title.module.css'
 
-type Variant = 'display' | 'section'
+type Variant = 'hero' | 'display' | 'section'
 
 export interface TitleProps {
   as?: 'h1' | 'h2' | 'h3' | 'h4'
@@ -12,17 +12,18 @@ export interface TitleProps {
 }
 
 const variantClass: Record<Variant, string> = {
+  hero: styles.hero,
   display: styles.display,
   section: styles.section,
 }
 
 export default function Title({
   as: Tag = 'h2',
-  variant = 'display',
+  variant,
   id,
   className,
   children,
 }: TitleProps) {
-  const classes = [styles.title, variantClass[variant], className].filter(Boolean).join(' ')
+  const classes = [styles.title, variant ? variantClass[variant] : null, className].filter(Boolean).join(' ')
   return <Tag id={id} className={classes}>{children}</Tag>
 }
