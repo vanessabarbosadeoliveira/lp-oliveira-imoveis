@@ -2,7 +2,6 @@
   /* Break out of main's max-width and side padding to stay full-bleed */
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 0 5%;
