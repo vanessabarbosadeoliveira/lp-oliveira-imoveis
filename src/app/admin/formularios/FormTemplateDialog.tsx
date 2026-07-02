@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Popup from '@/components/popup/Popup/Popup'
 import TextField from '@/components/simple/TextField/TextField'
 import TextArea from '@/components/simple/TextArea/TextArea'
+import Checkbox from '@/components/simple/Checkbox/Checkbox'
 import Button from '@/components/simple/Button/Button'
 import type { FormTemplate } from './types'
 import styles from './formularios.module.css'
@@ -32,6 +33,7 @@ export default function FormTemplateDialog({
   const [description, setDescription] = useState('')
   const [llmPromptTemplate, setLlmPromptTemplate] = useState('')
   const [sortOrder, setSortOrder] = useState(0)
+  const [isPublic, setIsPublic] = useState(false)
 
   const promptRef = useRef<HTMLTextAreaElement>(null)
 
@@ -43,12 +45,14 @@ export default function FormTemplateDialog({
       setDescription(template.description ?? '')
       setLlmPromptTemplate(template.llm_prompt_template ?? '')
       setSortOrder(template.sort_order)
+      setIsPublic(template.public)
     } else {
       setSlug('')
       setTitle('')
       setDescription('')
       setLlmPromptTemplate('')
       setSortOrder(0)
+      setIsPublic(false)
     }
   }, [template, isOpen])
 
@@ -79,6 +83,7 @@ export default function FormTemplateDialog({
       description: description || null,
       llm_prompt_template: llmPromptTemplate || null,
       sort_order: sortOrder,
+      public: isPublic,
     })
   }
 
@@ -149,6 +154,12 @@ export default function FormTemplateDialog({
             type="number"
             value={String(sortOrder)}
             onChange={e => setSortOrder(Number(e.target.value))}
+          />
+          <Checkbox
+            id="template-public"
+            checked={isPublic}
+            onChange={e => setIsPublic(e.target.checked)}
+            label="Visível no portal do cliente"
           />
           {error && (
             <p className={styles.dialogError}>{error}</p>

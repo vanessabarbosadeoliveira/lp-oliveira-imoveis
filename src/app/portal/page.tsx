@@ -7,17 +7,6 @@ import styles from './portal-home.module.css'
 
 const MAX_USES = 2
 
-const FERRAMENTAS = [
-  {
-    slug: 'pesquisa-mercado',
-    title: 'Pesquisa de Mercado',
-    motivation: 'Não arrisque seu investimento. Faça sua pesquisa de mercado agora.',
-    description:
-      'Com o apoio da IA e das perguntas certas, a gente coloca os dados na mesa para você decidir com segurança. Preencha o formulário.',
-    href: '/portal/ferramentas/pesquisa-mercado',
-  },
-] as const
-
 export default async function PortalHome() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -30,9 +19,7 @@ export default async function PortalHome() {
 
   const firstName = profile?.full_name?.split(' ')[0] ?? 'Cliente'
 
-  const ferramentaSlugs = FERRAMENTAS.map(f => f.slug)
-
-  const [historyResult, templatesResult, completedResult] = await Promise.all([
+  const [historyResult, publicTemplatesResult, completedResult] = await Promise.all([
     supabase
       .from('form_responses')
       .select('id, status, updated_at, form_templates ( title, slug )')
@@ -41,8 +28,9 @@ export default async function PortalHome() {
       .order('updated_at', { ascending: false }),
     supabase
       .from('form_templates')
-      .select('id, slug')
-      .in('slug', ferramentaSlugs),
+      .select('id, slug, title, description')
+      .eq('public', true)
+      .order('sort_order', { ascending: true }),
     supabase
       .from('form_responses')
       .select('form_template_id')
@@ -51,10 +39,12 @@ export default async function PortalHome() {
   ])
 
   const history = (historyResult.data ?? []) as unknown as AnalysisHistoryRow[]
+  const ferramentas = (publicTemplatesResult.data ?? []).map(t => ({
+    ...t,
+    href: `/portal/ferramentas/${t.slug}`,
+  }))
 
-  const templateIdToSlug = Object.fromEntries(
-    (templatesResult.data ?? []).map(t => [t.id, t.slug])
-  )
+  const templateIdToSlug = Object.fromEntries(ferramentas.map(t => [t.id, t.slug]))
   const usageBySlug: Record<string, number> = {}
   for (const r of completedResult.data ?? []) {
     const slug = templateIdToSlug[r.form_template_id]
@@ -79,13 +69,17 @@ export default async function PortalHome() {
       <section className={styles.section}>
         <h2 className={styles.sectionLabel}>Ferramentas</h2>
         <div className={styles.toolGrid}>
-          {FERRAMENTAS.map(tool => {
+          {ferramentas.length === 0 && (
+            <p className={styles.toolEmpty}>Nenhuma ferramenta disponível no momento.</p>
+          )}
+          {ferramentas.map(tool => {
             const uses = usageBySlug[tool.slug] ?? 0
             return (
               <div key={tool.slug} className={styles.toolCard}>
                 <h3>{tool.title}</h3>
-                <p className={styles.toolMotivation}>{tool.motivation}</p>
-                <p className={styles.toolDescription}>{tool.description}</p>
+                {tool.description && (
+                  <p className={styles.toolDescription}>{tool.description}</p>
+                )}
                 <div className={styles.toolAction}>
                   <Button href={tool.href} variant="solid" size="md">Iniciar</Button>
                   <span className={styles.toolUsage}>{uses}/{MAX_USES}</span>

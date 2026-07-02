@@ -17,5 +17,6 @@ export interface FormTemplate {
   description: string | null
   llm_prompt_template: string | null
   sort_order: number
+  public: boolean
   created_at: string
 }

@@ -2,10 +2,13 @@
   margin: 0.25rem 0 2rem;
 }
 
+/* ── Stats row ──────────────────────────────────────────────────── */
+
 .stats {
   display: flex;
   gap: 1.25rem;
   flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
 
 .statCard {
@@ -31,4 +34,99 @@
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+/* ── Sections ───────────────────────────────────────────────────── */
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.18);
+}
+
+.empty {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Tool cards ─────────────────────────────────────────────────── */
+
+.toolGrid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.toolCard {
+  background: var(--bg-dark-alt);
+  border: 1px solid rgba(var(--gold-rgb), 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.toolHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+.toolTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.draftBadge {
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  white-space: nowrap;
+  margin-top: 0.1rem;
+}
+
+.toolDescription {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  flex: 1;
+  margin: 0;
+}
+
+.toolAction {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toolUsage {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
 }

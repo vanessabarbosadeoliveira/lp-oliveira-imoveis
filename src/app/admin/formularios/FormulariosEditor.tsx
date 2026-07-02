@@ -98,6 +98,12 @@ export default function FormulariosEditor({
     { key: 'title', label: 'Título', type: 'string', sortable: true },
     { key: 'sort_order', label: 'Ordem', type: 'number', sortable: true },
     {
+      key: 'public',
+      label: 'Visível no portal',
+      type: 'string',
+      render: (row) => (row.public ? 'Sim' : 'Não'),
+    },
+    {
       key: 'actions',
       label: 'Ações',
       type: 'string',

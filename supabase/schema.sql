@@ -87,6 +87,7 @@ create table public.form_templates (
   description          text,
   llm_prompt_template  text,   -- system prompt with {{field_key}} placeholders
   sort_order           int not null default 0,
+  public               boolean not null default false,
   created_at           timestamptz default now()
 );
 
