@@ -62,10 +62,10 @@ const PAINS = [
 
 export default function PainSection() {
   return (
-    <Section variant="alt">
+    <Section variant="light">
       <Tag>O risco de decidir sem dados</Tag>
       <Title variant="display" className={styles.heading}>
-        O ponto errado<br />custa mais do que o aluguel
+        O ponto <em>errado<br />custa mais</em> do que o aluguel
       </Title>
       <Text variant="lead" className={styles.lead}>
         Muitos empreendedores fecham um contrato animados com a localização — e só descobrem o problema depois que as chaves estão em mãos.
@@ -84,7 +84,7 @@ export default function PainSection() {
       <div className={styles.callout}>
         <div className={styles.calloutIcon}><InfoIcon /></div>
         <Text variant="body">
-          A Oliveira Imóveis resolve exatamente isso. <strong>Antes de qualquer contrato</strong>, analisamos o ponto, o entorno e o perfil do público para garantir que seu negócio entra no lugar certo — e cresce.
+          A Oliveira Imóveis resolve exatamente isso. Antes de qualquer contrato, analisamos o ponto, o entorno e o perfil do público para garantir que seu negócio entra no lugar certo — e cresce.
         </Text>
       </div>
     </Section>

@@ -13,11 +13,11 @@ function SearchIcon() {
 
 export default function MethodSection() {
   return (
-    <Section variant="light">
+    <Section variant="alt">
       <div className={styles.intro}>
         <Tag>Como trabalhamos</Tag>
         <Title variant="display" className={styles.heading}>
-          Não alugamos espaço.<br />Montamos ecossistemas.
+          Não alugamos espaço.<br /><em>Montamos ecossistemas.</em>
         </Title>
         <Text variant="lead">
           Cada negócio que entra em um ponto Oliveira Imóveis passou por etapas de análise estratégica — para que o conjunto seja mais forte que cada parte.
@@ -25,8 +25,10 @@ export default function MethodSection() {
       </div>
 
       <Card className={styles.step}>
-        <div className={styles.stepIcon}><SearchIcon /></div>
-        <Title as="h3" className={styles.stepTitle}>Curadoria estratégica de ponto e perfil</Title>
+        <div className={styles.stepHeader}>
+          <div className={styles.stepIcon}><SearchIcon /></div>
+          <Title as="h3" className={styles.stepTitle}>Curadoria estratégica de ponto e perfil</Title>
+        </div>
         <Text variant="muted">
           Analisamos a vocação comercial do ponto, o fluxo real de público e o potencial da região antes de indicar qualquer espaço. Não trabalhamos com volume — trabalhamos com estratégia.
         </Text>
@@ -34,7 +36,7 @@ export default function MethodSection() {
 
       <div className={styles.cta}>
         <TabLink tab="especialista">Falar com especialista</TabLink>
-        <TabLink tab="plataforma" variant="outline">Fazer pesquisa agora</TabLink>
+        <TabLink tab="plataforma" variant="outline">Fazer pesquisa gratuita</TabLink>
       </div>
     </Section>
   )

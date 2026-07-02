@@ -15,15 +15,22 @@
   overflow: hidden;
 }
 
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
 .stepIcon {
   color: var(--gold);
-  margin-bottom: 0.85rem;
   display: flex;
+  flex-shrink: 0;
 }
 
 .stepTitle {
   font-size: 1.1rem;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0;
 }
 
 .cta {

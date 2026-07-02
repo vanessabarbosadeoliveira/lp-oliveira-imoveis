@@ -17,7 +17,13 @@ export default function TabLink({ tab, variant, size = 'md', children }: TabLink
     // Wait two animation frames so React flushes the re-render before scrolling
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        document.getElementById('opcoes')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        const el = document.getElementById('opcoes')
+        if (!el) return
+        const headerHeight = parseInt(
+          getComputedStyle(document.documentElement).getPropertyValue('--header-height')
+        ) || 72
+        const top = el.getBoundingClientRect().top + window.scrollY - headerHeight
+        window.scrollTo({ top, behavior: 'smooth' })
       })
     })
   }

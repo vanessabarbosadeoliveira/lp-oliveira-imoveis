@@ -9,7 +9,7 @@
 
 .heading em {
   color: var(--gold);
-  font-style: italic;
+  font-style: normal;
 }
 
 .lead {

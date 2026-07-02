@@ -4,7 +4,7 @@ import styles from './NumbersSection.module.css'
 const NUMBERS = [
   { num: '7+', label: 'Negócios no ecossistema' },
   { num: '100%', label: 'Foco em comercial' },
-  { num: '0%', label: 'Vacância após curadoria' },
+  { num: '30+', label: 'Anos de experiência em pesquisa de mercado' },
   { num: '2024', label: 'Atuando em BH' },
 ]
 

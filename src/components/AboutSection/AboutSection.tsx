@@ -1,5 +1,5 @@
 import { Section, Card, Tag, Title, Text, List } from '@/components/simple'
-import Button from '@/components/simple/Button/Button'
+import TabLink from '@/components/HeroSection/TabLink'
 import styles from './AboutSection.module.css'
 
 function MapPinIcon() {
@@ -14,10 +14,12 @@ function MapPinIcon() {
 const ABOUT_ITEMS = [
   'Foco exclusivo em imóveis comerciais em BH e região',
   'Método proprietário de análise e curadoria de ecossistemas',
-  'Marketing digital com tráfego pago e campanhas segmentadas',
   'Gestão próxima e transparente com análise de mercado contínua',
   'Case comprovado: Centro Comercial Iracema — Serra, BH',
 ]
+
+const MAPS_LINK =
+  'https://www.google.com/maps/search/?api=1&query=Rua%20Palmira%20653-671%2C%20Serra%2C%20Belo%20Horizonte%20-%20MG'
 
 export default function AboutSection() {
   return (
@@ -26,7 +28,7 @@ export default function AboutSection() {
         <div className={styles.content}>
           <Tag>Quem somos</Tag>
           <Title variant="display" className={styles.heading}>
-            Mais do que uma imobiliária —<br />estrategistas de ponto comercial
+            Mais do que uma imobiliária —<br /><em>estrategistas</em> de ponto comercial
           </Title>
           <Text variant="lead" className={styles.lead}>
             A Oliveira Imóveis nasceu com um propósito claro: posicionar espaços comerciais com estratégia e curadoria de negócios — gerando resultado real para proprietários e lojistas.
@@ -42,13 +44,20 @@ export default function AboutSection() {
           <div className={styles.address}>
             <span className={styles.addressIcon}><MapPinIcon /></span>
             <Text variant="meta" as="span">
-              Rua Palmira, 653 a 671<br />Serra · Belo Horizonte – MG
+              <a
+                className={styles.addressLink}
+                href={MAPS_LINK}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Rua Palmira, 653 a 671<br />Serra · Belo Horizonte – MG
+              </a>
             </Text>
           </div>
           <div className={styles.visualCta}>
-            <Button href="#opcoes" size="md">
+            <TabLink tab="especialista" size="md">
               Quero a análise gratuita
-            </Button>
+            </TabLink>
           </div>
         </Card>
       </div>

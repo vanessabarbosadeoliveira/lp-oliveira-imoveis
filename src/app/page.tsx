@@ -16,11 +16,11 @@ export default function HomePage() {
       <Header />
       <main className={styles.main}>
         <HeroSection />
+        <NumbersSection />
         <PainSection />
         <MethodSection />
         <CaseSection />
         <TestimonialsSection />
-        <NumbersSection />
         <AboutSection />
         <CtaSection />
       </main>

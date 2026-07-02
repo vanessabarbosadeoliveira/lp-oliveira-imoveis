@@ -46,10 +46,10 @@ const TESTIMONIALS = [
 
 export default function TestimonialsSection() {
   return (
-    <Section variant="light">
+    <Section variant="alt">
       <Tag>Depoimentos reais</Tag>
       <Title variant="display" className={styles.heading}>
-        Quem já está no ecossistema<br />fala por si
+        Quem já está no <em>ecossistema</em><br />fala por si
       </Title>
 
       <div className={styles.grid}>

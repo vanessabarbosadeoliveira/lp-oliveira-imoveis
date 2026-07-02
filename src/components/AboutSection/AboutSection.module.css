@@ -50,6 +50,18 @@
   display: flex;
 }
 
+.addressLink {
+  color: var(--gold);
+  text-decoration: none;
+  transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.addressLink:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .visualCta {
   display: flex;
 }

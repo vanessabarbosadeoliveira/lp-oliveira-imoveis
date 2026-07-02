@@ -12,9 +12,18 @@
   line-height: 1.1;
 }
 
+.hero em {
+  font-style: normal;
+}
+
 .display {
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   letter-spacing: -0.01em;
+}
+
+.display em {
+  color: var(--gold);
+  font-style: normal;
 }
 
 .section {

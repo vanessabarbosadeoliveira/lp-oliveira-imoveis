@@ -17,7 +17,6 @@ export default function HeroSection() {
     <section className={styles.section} aria-labelledby="hero-heading" id="inicio">
       <div className={styles.inner}>
         <div className={styles.left}>
-          <Tag as="div" className={styles.eyebrow}>Oliveira Imóveis · Comercial</Tag>
           <Title as="h1" variant="hero" id="hero-heading" className={styles.heading}>
             Seu próximo ponto<br />
             precisa de <em>dados,</em><br />
@@ -25,7 +24,7 @@ export default function HeroSection() {
           </Title>
 
           <Text variant="lead" className={styles.description}>
-            Antes de assinar um contrato, saiba se o ponto tem <strong>fluxo de público</strong>, <strong>vocação comercial</strong> e <strong>vizinhos certos</strong> para o seu negócio crescer de verdade.
+            Antes de assinar um contrato, saiba se o ponto tem fluxo de público, vocação comercial e vizinhos certos para o seu negócio crescer de verdade.
           </Text>
         </div>
 

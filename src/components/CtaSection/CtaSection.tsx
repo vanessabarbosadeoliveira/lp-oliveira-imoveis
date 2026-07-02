@@ -19,12 +19,12 @@ export default function CtaSection() {
           Antes de assinar qualquer<br />contrato, <em>fale com a gente.</em>
         </Title>
         <Text variant="lead" className={styles.lead}>
-          Nossa análise é gratuita, sem compromisso e feita por quem conhece o mercado comercial de BH desde 2024. Você recebe dados reais para tomar a decisão mais importante da sua expansão.
+          Nossa análise une dados, tecnologia e mais de 30 anos de experiência em pesquisa de mercado para transformar a escolha do ponto comercial em uma decisão mais estratégica.
         </Text>
         <List variant="check" items={CTA_FEATURES} className={styles.features} />
         <div className={styles.cta}>
           <TabLink tab="especialista">Falar com especialista</TabLink>
-          <TabLink tab="plataforma" variant="outline">Fazer pesquisa agora</TabLink>
+          <TabLink tab="plataforma" variant="outline">Fazer pesquisa gratuita</TabLink>
         </div>
       </div>
     </Section>

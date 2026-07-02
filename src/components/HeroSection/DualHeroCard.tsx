@@ -62,24 +62,20 @@ export default function DualHeroCard() {
         >
           <span className={styles.tabIcon}><SearchIcon /></span>
           <span className={styles.tabContent}>
-            <span className={styles.tabTitle}>Fazer pesquisa agora</span>
+            <span className={styles.tabTitle}>Fazer pesquisa gratuita</span>
           </span>
         </button>
       </div>
 
       {activeTab === 'especialista' ? (
         <div className={styles.panel} role="tabpanel">
-          <h2 className={styles.panelTitle}>Fale com um de nossos especialistas</h2>
-          <p className={styles.panelDesc}>
-            Preencha o formulário e nossa equipe entra em contato pelo WhatsApp para entender seu negócio e indicar o melhor ponto.
-          </p>
           <LeadForm />
         </div>
       ) : (
         <div className={styles.panel} role="tabpanel">
-          <h2 className={styles.panelTitle}>Crie sua conta e faça a pesquisa agora</h2>
+          <h2 className={styles.panelTitle}>Siga os passos</h2>
           <p className={styles.panelDesc}>
-            Acesse a plataforma Oliveira Imóveis, informe o bairro e segmento do seu negócio e receba a análise do ponto na hora.
+            Cadastre-se, responda algumas perguntas sobre o seu negócio e receba sua pesquisa de mercado na hora.
           </p>
           <RegisterForm />
         </div>
