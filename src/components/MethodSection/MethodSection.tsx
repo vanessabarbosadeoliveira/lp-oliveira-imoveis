@@ -25,7 +25,6 @@ export default function MethodSection() {
       </div>
 
       <Card className={styles.step}>
-        <div className={styles.stepNum} aria-hidden="true">01</div>
         <div className={styles.stepIcon}><SearchIcon /></div>
         <Title as="h3" className={styles.stepTitle}>Curadoria estratégica de ponto e perfil</Title>
         <Text variant="muted">

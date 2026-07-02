@@ -15,19 +15,6 @@
   overflow: hidden;
 }
 
-.stepNum {
-  font-size: 6rem;
-  font-weight: 800;
-  color: rgba(var(--gold-rgb), 0.08);
-  position: absolute;
-  top: -0.5rem;
-  right: 1.5rem;
-  line-height: 1;
-  font-family: var(--font-display);
-  pointer-events: none;
-  user-select: none;
-}
-
 .stepIcon {
   color: var(--gold);
   margin-bottom: 0.85rem;
