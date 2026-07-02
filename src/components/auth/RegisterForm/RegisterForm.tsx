@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Button, TextField, Checkbox } from '@/components/simple'
 import { Popup, Termos, Privacidade } from '@/components/popup'
-import { gtagEvent } from '@/lib/gtag'
+import { gtagEvent, fbqEvent } from '@/lib/gtag'
 import styles from './RegisterForm.module.css'
 
 function formatPhone(value: string) {
@@ -84,7 +84,10 @@ export default function RegisterForm() {
       return
     }
 
+    gtagEvent('form_submitted', { event_category: 'landing_page', event_label: 'cadastro_plataforma' })
+    gtagEvent('generate_lead', { event_category: 'landing_page', event_label: 'cadastro_plataforma' })
     gtagEvent('sign_up', { method: 'email' })
+    fbqEvent('Lead', { content_name: 'Análise Gratuita Oliveira Imóveis', content_category: 'Cadastro Plataforma' })
     router.push('/portal')
     router.refresh()
   }

@@ -1,4 +1,4 @@
-import { Section, Card, Tag, Title, Text } from '@/components/simple'
+import { Section, Card, Tag, Title, Text, List } from '@/components/simple'
 import styles from './CaseSection.module.css'
 
 function MapPinIcon() {
@@ -24,7 +24,7 @@ const STATS = [
   { num: '7+', label: 'Negócios no ecossistema' },
   { num: '30%', label: 'Crescimento no faturamento' },
   { num: '0%', label: 'Vacância após curadoria' },
-  { num: '2016', label: 'Início das operações em BH' },
+  { num: '2024', label: 'Início das operações em BH' },
 ]
 
 export default function CaseSection() {
@@ -61,16 +61,18 @@ export default function CaseSection() {
         </div>
 
         <Card className={styles.map}>
-          <Text variant="meta" className={styles.mapTitle}>Negócios do ecossistema · Iracema</Text>
-          <div className={styles.mapList}>
-            {ECOSYSTEM.map(e => (
-              <div key={e.name} className={styles.ecoItem}>
-                <span className={styles.ecoBullet} aria-hidden="true" />
+          <Title as="h3" className={styles.mapTitle}>Negócios do ecossistema · Iracema</Title>
+          <List
+            variant="dot"
+            className={styles.mapList}
+            contentClassName={styles.ecoContent}
+            items={ECOSYSTEM.map(e => (
+              <>
                 <span className={styles.ecoName}>{e.name}</span>
                 <span className={styles.ecoTag}>{e.tag}</span>
-              </div>
+              </>
             ))}
-          </div>
+          />
           <div className={styles.address}>
             <span className={styles.addressIcon}><MapPinIcon /></span>
             <Text variant="meta" as="span">

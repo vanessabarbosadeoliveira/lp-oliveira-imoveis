@@ -1,14 +1,6 @@
-import { Section, Card, Tag, Title, Text } from '@/components/simple'
+import { Section, Card, Tag, Title, Text, List } from '@/components/simple'
 import Button from '@/components/simple/Button/Button'
 import styles from './AboutSection.module.css'
-
-function CheckIcon() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  )
-}
 
 function MapPinIcon() {
   return (
@@ -39,14 +31,7 @@ export default function AboutSection() {
           <Text variant="lead" className={styles.lead}>
             A Oliveira Imóveis nasceu com um propósito claro: posicionar espaços comerciais com estratégia e curadoria de negócios — gerando resultado real para proprietários e lojistas.
           </Text>
-          <ul className={styles.list}>
-            {ABOUT_ITEMS.map(item => (
-              <li key={item} className={styles.listItem}>
-                <span className={styles.listCheck}><CheckIcon /></span>
-                <Text as="span" variant="body">{item}</Text>
-              </li>
-            ))}
-          </ul>
+          <List variant="check" items={ABOUT_ITEMS} />
         </div>
 
         <Card className={styles.visual}>

@@ -1,3 +1,5 @@
+export { default as List } from './List/List'
+export type { ListProps, ListVariant } from './List/List'
 export { default as Section } from './Section/Section'
 export type { SectionProps } from './Section/Section'
 export { default as Card } from './Card/Card'

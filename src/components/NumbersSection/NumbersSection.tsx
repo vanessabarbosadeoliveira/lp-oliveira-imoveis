@@ -2,10 +2,10 @@ import { Section, Text } from '@/components/simple'
 import styles from './NumbersSection.module.css'
 
 const NUMBERS = [
-  { num: '2016', label: 'Atuando em BH' },
   { num: '7+', label: 'Negócios no ecossistema' },
   { num: '100%', label: 'Foco em comercial' },
-  { num: '4', label: 'Etapas do método' },
+  { num: '0%', label: 'Vacância após curadoria' },
+  { num: '2024', label: 'Atuando em BH' },
 ]
 
 export default function NumbersSection() {

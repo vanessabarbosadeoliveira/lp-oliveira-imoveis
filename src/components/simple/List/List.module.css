@@ -1,0 +1,82 @@
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.92rem;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+/* ── Marker (dot, dash, check) ─────────────────────────────────── */
+
+.marker {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  color: var(--gold);
+}
+
+/* Dot — 6px filled circle */
+.dot .marker {
+  margin-top: 0.45rem;
+}
+
+.dot .marker::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+/* Dash — short horizontal line */
+.dash .marker {
+  margin-top: 0.55rem;
+}
+
+.dash .marker::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+/* Check — SVG tick, 13 × 13 */
+.check .marker {
+  margin-top: 0.25rem;
+}
+
+/* ── Ordered ───────────────────────────────────────────────────── */
+
+.ordered {
+  counter-reset: list-counter;
+}
+
+.ordered .item {
+  counter-increment: list-counter;
+}
+
+.ordered .item::before {
+  content: counter(list-counter) '.';
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 1.5rem;
+  line-height: 1.7;
+}

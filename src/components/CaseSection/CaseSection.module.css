@@ -16,14 +16,6 @@
   margin-bottom: 1rem;
 }
 
-.dot {
-  width: 7px;
-  height: 7px;
-  background: var(--gold);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
 .heading {
   margin-bottom: 1.25rem;
 }
@@ -73,43 +65,24 @@
 }
 
 .map {
-  position: sticky;
-  top: calc(var(--header-height) + 1.5rem);
+  align-self: start;
 }
 
 .mapTitle {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
 .mapList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
   margin-bottom: 1.25rem;
 }
 
-.ecoItem {
+/* flex row for name + tag inside the List content span */
+.ecoContent {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.5rem 0.6rem;
-  border-radius: 4px;
   font-size: 0.82rem;
-  transition: background 0.12s;
-}
-
-.ecoItem:hover {
-  background: rgba(var(--gold-rgb), 0.06);
-}
-
-.ecoBullet {
-  width: 5px;
-  height: 5px;
-  background: var(--gold);
-  border-radius: 50%;
-  flex-shrink: 0;
 }
 
 .ecoName {

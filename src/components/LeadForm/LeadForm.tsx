@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Button, TextField } from '@/components/simple'
-import { gtagEvent } from '@/lib/gtag'
+import { gtagEvent, fbqEvent } from '@/lib/gtag'
 import styles from './LeadForm.module.css'
 
 function formatPhone(value: string) {
@@ -37,10 +37,9 @@ export default function LeadForm() {
     setErrors({})
     setLoading(true)
 
-    gtagEvent('generate_lead', {
-      event_category: 'lead_form',
-      event_label: 'hero_whatsapp_lead',
-    })
+    gtagEvent('form_submitted', { event_category: 'landing_page', event_label: 'hero_whatsapp_lead' })
+    gtagEvent('generate_lead', { event_category: 'landing_page', event_label: 'hero_whatsapp_lead' })
+    fbqEvent('Lead', { content_name: 'Análise Gratuita Oliveira Imóveis', content_category: 'Lead form' })
 
     const waPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5562981835901'
     const message = `Olá! Sou ${fullName}. Tenho interesse em uma análise de mercado gratuita. Meu WhatsApp é ${phone} e meu e-mail é ${email}.`
