@@ -12,10 +12,18 @@ export default async function PortalLayout({ children }: { children: React.React
 
   if (!user) redirect('/login')
 
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .single()
+
+  const homeHref = profile?.role === 'admin' ? '/admin' : '/portal'
+
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
-        <a href="/portal" className={styles.brand} aria-label="Oliveira Imóveis — portal">
+        <a href={homeHref} className={styles.brand} aria-label="Oliveira Imóveis — portal">
           <Image
             src="/assets/logo/logo.png"
             alt="Logotipo Oliveira Imóveis"

@@ -45,7 +45,7 @@ export default function LeadForm() {
     gtagEvent('generate_lead', { event_category: 'landing_page', event_label: 'hero_whatsapp_lead' })
     fbqEvent('Lead', { content_name: 'Análise Gratuita Oliveira Imóveis', content_category: 'Lead form' })
 
-    const waPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5562981835901'
+    const waPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE
     const message = `Olá! Sou ${fullName}. Tenho interesse em uma análise de mercado gratuita. Meu WhatsApp é ${phone} e meu e-mail é ${email}.`
     window.location.href = `https://wa.me/${waPhone}?text=${encodeURIComponent(message)}`
   }

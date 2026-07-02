@@ -75,7 +75,7 @@ export default function ContactForm() {
       expansao: fields.expansao,
     }).catch(() => {})
 
-    const phone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? '5562981835901'
+    const phone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE
     const text = encodeURIComponent(
       `Olá! Vim pelo site da Oliveira Imóveis.\n\n` +
       `*Nome:* ${fields.nome}\n` +
