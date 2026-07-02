@@ -58,10 +58,6 @@ export default async function AdminDashboard() {
           <span className={styles.statValue}>{allTemplates.length}</span>
           <span className={styles.statLabel}>Formulários</span>
         </div>
-        <div className={styles.statCard}>
-          <span className={styles.statValue}>{history.length}</span>
-          <span className={styles.statLabel}>Minhas análises</span>
-        </div>
       </div>
 
       {/* ── Formulários ───────────────────────────────────────────── */}
